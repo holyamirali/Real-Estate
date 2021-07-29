@@ -60,7 +60,6 @@
               </div>
             </div>
             <!-- end:sorting -->
-<!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
             <!-- begin:product -->
             <div class="row container-realestate">
               {% if listings %}
@@ -88,7 +87,7 @@
                     <div class="property-text">
                       <h3><a href="#">{{listing.title}}</a></h3>
                       <p>{{listing.details}}</p>
-                      <p><a href="#" class="btn btn-primary">توضیحات بیشتر &raquo;</a></p>
+                      <p><a href="{% url 'details' listing.id %}" class="btn btn-primary">توضیحات بیشتر &raquo;</a></p>
                     </div>
                   </div>
                 </div>
@@ -156,11 +155,11 @@
                 <div class="form-group">
                   <label for="beds">تخت</label>
                   <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                    <option value=1>1</option>
+                    <option value=2>2</option>
+                    <option value=3>3</option>
+                    <option value=4>4</option>
+                    <option value=5>5</option>
                   </select>
                 </div>
                 <div class="form-group">

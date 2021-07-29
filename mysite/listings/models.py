@@ -1,5 +1,7 @@
 from django.db import models
 from datetime import datetime
+
+from django.db.models.fields import NullBooleanField
 from realtors.models import Realtor
 
 class Listings(models.Model):
@@ -16,9 +18,9 @@ class Listings(models.Model):
     details         = models.TextField()
     is_published    = models.BooleanField(default=True)
     list_data       = models.DateTimeField(blank=True, default=datetime.now)
-    photo_main      = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-    photo_1         = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-    photo_2         = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    photo_main      = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
+    photo_1         = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
+    photo_2         = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, null=True)
 
     def __str__(self):
         return self.title

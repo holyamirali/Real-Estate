@@ -3,6 +3,6 @@ from .views import *
 
 urlpatterns = [
     path('', index, name="listings"),
-    #path('cat<int:id>', singleCat, name="singleCat"),
-    #path('search', search, name="search"), 
+    path('<int:listing_id>', details, name="details"),
+    #path('search', search, name="search"),
 ]
