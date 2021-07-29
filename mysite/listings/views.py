@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Listings
 
 def index(request):
-    listings = Listings.objects.all
+    listings = Listings.objects.all()
     context = {
         "listings" : listings
     }
@@ -15,3 +15,13 @@ def details(request, listing_id):
         "listing" : listing
     }
     return render(request, "listings/single.html", context=context)
+
+def search(request):
+    listing = Listings.objects.all()
+    if 'bathroom' in request.GET:
+        bathroom = request.GET['bathroom']
+        listings = listing.filter(bathroom=bathroom)
+    context = {
+        'listings': listings,
+    }
+    return render(request, "listings/category_list.html", context=context)
