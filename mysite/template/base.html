@@ -417,26 +417,27 @@
             <h4 class="modal-title">Sign in</h4>
           </div>
           <div class="modal-body">
-            <form role="form">
+            <form role="form" method="POST" action="{% url 'login' %}">
+              {% csrf_token %}
               <div class="form-group">
-                <label for="emailAddress">ایمیل</label>
-                <input type="email" class="form-control input-lg" placeholder="ایمیل">
+                <label for="emailAddress">نام کاربری</label>
+                <input type="text" name="username" class="form-control input-lg" placeholder="نام کاربری">
               </div>
               <div class="form-group">
                 <label for="password">کلمه عبور</label>
-                <input type="password" class="form-control input-lg" placeholder="کلمه عبور">
+                <input type="password" name="password" class="form-control input-lg" placeholder="کلمه عبور">
               </div>
               <div class="checkbox">
                 <label>
                   <input type="checkbox" name="forget"> مرا بخاطر بسپار
                 </label>
               </div>
-            </form>
           </div>
           <div class="modal-footer">
             <p>آیا ثبت نام نکرده اید ? <a href="#modal-signup"  data-toggle="modal" data-target="#modal-signup">ثبت نام</a></p>
             <input type="submit" class="btn btn-primary btn-block btn-lg" value="ورود به سایت">
           </div>
+        </form>
         </div>
       </div>
     </div>

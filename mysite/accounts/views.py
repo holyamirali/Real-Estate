@@ -1,11 +1,18 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.contrib import auth
 
-def register(request, name):
-    return HttpResponse("<h1>Welcome sir " + str(name) + "! So lucky to have you ;)<h1>")
+def dashboard(request):
+    return render(request, "cp/dashboard.html")
 
-def login(request, name):
-    return HttpResponse("<h3>Yo " + str(name) + "! How you doin' bro?<h3>")
-
-def logout(request, name):
-    return HttpResponse("And I tell you all about it when I see you again, " + str(name) + " !")
+def login(request):
+    if request.method == 'POST':
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            return redirect('dashboard')
+        else:
+            return render(request, 'pages/index.html')
+    else:
+        return render(request, 'pages/index.html')
