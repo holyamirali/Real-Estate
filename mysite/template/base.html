@@ -452,27 +452,31 @@
             <h4 class="modal-title">ثبت نام</h4>
           </div>
           <div class="modal-body">
-            <form role="form">
+            <form role="form" method="POST" action="{% url 'register' %}">
+            {% csrf_token %}
               <div class="form-group">
-                <input type="ایمیل" class="form-control input-lg" placeholder="ایمیل">
+                <input type="text" name="username" class="form-control input-lg" placeholder="نام کاربری">
               </div>
               <div class="form-group">
-                <input type="کلمه عبور" class="form-control input-lg" placeholder="کلمه عبور">
+                <input type="text" name="email" class="form-control input-lg" placeholder="ایمیل">
               </div>
               <div class="form-group">
-                <input type="تکرار کلمه عبور" class="form-control input-lg" placeholder="تکرار کلمه عبور">
+                <input type="password" name="password" class="form-control input-lg" placeholder="کلمه عبور">
+              </div>
+              <div class="form-group">
+                <input type="password" name="repassword" class="form-control input-lg" placeholder="تکرار کلمه عبور">
               </div>
               <div class="checkbox">
                 <label>
                   <input type="checkbox" name="agree"> آیا با قوانین <a href="#">سایت ما موافق هستید؟</a> 
                 </label>
               </div>
-            </form>
           </div>
           <div class="modal-footer">
             <p>آیا ثبت نام کرده اید؟ <a href="#modal-signin" data-toggle="modal" data-target="#modal-signin">ورود به سایت.</a></p>
             <input type="submit" class="btn btn-primary btn-block btn-lg" value="ثبت نام">
           </div>
+          </form>
         </div>
       </div>
     </div>
