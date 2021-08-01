@@ -19,28 +19,29 @@ def login(request):
         return redirect('index')
 
 def register(request):
-    print("REGISTER IS CLICKED")
     if request.method == 'POST':
         username = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']
         repassword = request.POST['repassword']
         if (password != repassword):
-            print("Passwords doesnt match")
             return redirect('index')
         if len(password)<8:
-            print("Password is short!")
             return redirect('index')
         if User.objects.filter(username=username).exists():
-            print("Username exists! new")
             return redirect('index')
         if User.objects.filter(email=email).exists():
-            print("Email exists!")
             return redirect('index')
         user = User.objects.create_user(username=username, email=email, password=password)
         user.save()
         user = auth.authenticate(username=username, password=password)
-        print("Hmmm everything correct!!")
         return redirect('dashboard')
+    else:
+        return redirect('index')
+
+def logout(request):
+    if request.method == 'POST':
+        auth.logout(request)
+        return redirect('index')
     else:
         return redirect('index')

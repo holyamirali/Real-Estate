@@ -1,1 +1,6 @@
 <h1>Hi! Welcome to dashboard !</h1>
+<a href="javascript:{document.getElementById('logout').submit()}">خروج از حساب کاربری</a>
+<form action="{% url 'logout' %}" method="POST" id="logout">
+    {% csrf_token %}
+    <input type="hidden">
+</form>
