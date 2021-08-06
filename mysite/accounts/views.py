@@ -1,9 +1,18 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib import auth
 from django.contrib.auth.models import User
+from contact.models import Order
 
 def dashboard(request):
-    return render(request, "cp/dashboard.html")
+    if request.user.is_authenticated:
+        user_id = request.user.id
+        user = get_object_or_404(User, id=user_id)
+        orders = Order.objects.all().filter(client_name=user.username).order_by('-contact_date')
+        context = {
+            "username" : user.username,
+            "property" : orders,
+        }
+        return render(request, "cp/dashboard.html", context=context)
 
 def login(request):
     if request.method == 'POST':

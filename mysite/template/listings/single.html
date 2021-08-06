@@ -300,9 +300,15 @@
           <!-- end:article -->
 <!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
           <!-- begin:sidebar -->
+          {% if listing %}
           <div class="col-md-3 col-md-pull-9 sidebar">
             <div class="widget-white favorite">
-              <a href="#"><i class="fa fa-heart"></i> اضافه نمودن به علاقه مندی ها</a>
+              <a href="javascript:{document.getElementById('order_request').submit()}"><i class="fa fa-heart"></i>ثبت درخواست</a>
+              <form action="{% url 'contact' %}" method="POST" id="order_request">
+                {% csrf_token %}
+                <input type="hidden" value="{{ listing.id }}" name="listing_id">
+                <input type="hidden" value="{{ listing.title }}" name="listing_name">
+              </form>
             </div>
             <!-- break -->
             <div class="widget widget-sidebar widget-white">
@@ -345,6 +351,7 @@
             </div>
             <!-- break -->
           </div>
+          {% endif %}
           <!-- end:sidebar -->
           
         </div>

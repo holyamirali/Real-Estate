@@ -1,6 +1,52 @@
-<h1>Hi! Welcome to dashboard !</h1>
-<a href="javascript:{document.getElementById('logout').submit()}">خروج از حساب کاربری</a>
+
+
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+
+<h1>Hi {{ username }} !</h1>
+
+{% if 'property' %}
+<h2>Orders List</h2>
+<table>
+  <tr>
+    <th>Property Name</th>
+    <th>Date</th>
+    <th>Status</th>
+  </tr>
+  {% for order in property %}
+  <tr>
+    <td>{{ order.listing_name }}</td>
+    <td>{{ order.contact_date }}</td>
+    <td>{% if order.isChecked %} &#10004; {% else %} &times; {% endif %}</td>
+  </tr>
+  {% endfor %}
+  {% endif %}
+</table>
+
+<a href="javascript:{document.getElementById('logout').submit()}">Sign Out!</a>
 <form action="{% url 'logout' %}" method="POST" id="logout">
     {% csrf_token %}
     <input type="hidden">
 </form>
+
+</body>
+</html>
