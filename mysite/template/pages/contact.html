@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+    <!-- begin:header -->
+    <div id="header" class="heading" style="background-image: url({% static 'main/img/img01.jpg' %});">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1 col-sm-12">
+            <div class="page-title">
+              <h2>تماس با ما</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end:header -->
+    <!-- begin:content -->
+    <div id="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="blog-container">
+              <div class="blog-content">
+                <div id="map"></div>
+                <div class="blog-title">
+                  <h2>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </h2>
+                  <h3>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. </h3>
+                </div>
+
+                <div class="blog-text contact">
+                  <div class="row">
+                    <div class="col-md-8 col-sm-7">
+                      <form>
+                        <div class="form-group">
+                          <label for="name" class="sr-only">نام</label>
+                          <input type="text" class="form-control" placeholder="نام">
+                        </div>
+                        <div class="form-group">
+                          <label for="email" class="sr-only">ایمیل</label>
+                          <input type="email" class="form-control" placeholder="ایمیل">
+                        </div>
+                        <div class="form-group">
+                          <label for="subject" class="sr-only">عنوان</label>
+                          <input type="text" class="form-control" placeholder="عنوان">
+                        </div>
+                        <div class="form-group">
+                          <label for="name" class="sr-only">پیام</label>
+                          <textarea class="form-control" rows="5" placeholder="پیام"></textarea>
+                        </div>
+                        <div class="form-group">
+                          <button type="submit" name="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> ارسال پیام</button>
+                        </div>
+                      </form><br>
+                    </div>
+                    <div class="col-md-4 col-sm-5">
+                      <address>
+                        <strong>امیرعلی نورانی</strong><br>
+                        ایران - تهران<br>
+                        
+                        amirali_noorani12@yahoo.com<br>
+                        amirali12noorani@gmail.com<br>
+                        <abbr title="Phone">Telp.</abbr> (0912) 123-4567
+                      </address>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end:content -->
+{% endblock %}

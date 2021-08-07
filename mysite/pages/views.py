@@ -9,3 +9,6 @@ def about(request):
         'abouts' : About.objects.all
     }
     return render(request, 'pages/about.html', context=context)
+
+def contact(request):
+    return render(request, 'pages/contact.html')

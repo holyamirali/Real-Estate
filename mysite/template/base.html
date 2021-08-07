@@ -45,24 +45,15 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-top">
           <ul class="nav navbar-nav navbar-left">
-            <li class="active"><a href="index.html">صفحه اصلی</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">ویژگی <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="search.html">جستجو</a></li>
-                <li><a href="search_list.html">جستجو پیشرفته</a></li>
-                <li><a href="category.html">دسته بندی</a></li>
-                <li><a href="category_list.html">دسته بندی پیشرفته</a></li>
-                <li><a href="single.html">تک صفحه ای</a></li>
-              </ul>
-            </li>
+            <li><a href="{% url 'index' %}">صفحه اصلی</a></li>
+            <li><a href="{% url 'listings' %}">املاک موجود</a></li>
+            
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">صفحه <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="blog.html">آرشیو وبلاگ</a></li>
-                <li><a href="blog_single.html">وبلاک تک صفحه ای</a></li>
-                <li><a href="about.html">درباره ما</a></li>
-                <li><a href="contact.html">تماس با ما</a></li>
+                <li><a href="{% url 'blogView' %}">آرشیو وبلاگ</a></li>
+                <li><a href="{% url 'about' %}">درباره ما</a></li>
+                <li><a href="{% url 'contactAdmin' %}">تماس با ما</a></li>
               </ul>
             </li>
             <li><a href="#modal-signin" class="signin" data-toggle="modal" data-target="#modal-signin">ورود به سایت</a></li>
