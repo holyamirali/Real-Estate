@@ -1,5 +1,5 @@
 # Real-Estate Agency website  
-Using Django for the backend side  
+Used Django for the backend side  
 Jinja for making dynamic changes on frontend templates  
 PostgreSQL for the accounts and properties database (local)  
 
